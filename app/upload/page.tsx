@@ -8,7 +8,6 @@ import { Upload, ImagePlus } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 
 const ImageUploader: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -133,7 +132,7 @@ const ImageUploader: React.FC = () => {
               placeholder="Enter image title"
               required
             />
-            <Textarea
+            <textarea
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
