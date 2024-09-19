@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { ImagePlus } from 'lucide-react';
-import { Input } from './ui/input';
 
 interface ImageUploaderProps {
   onImageUpload: (imageUrl: string) => void;
@@ -11,7 +10,7 @@ interface ImageUploaderProps {
 const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, existingImageUrl, setIsImageUploading }) => {
   const [uploadProgress, setUploadProgress] = useState<number>(0);
   const [previewUrl, setPreviewUrl] = useState<string | null>(existingImageUrl || null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileinputRef = useRef<HTMLInputElement>(null);
 
   const uploadImage = async (file: File) => {
     setIsImageUploading(true);
@@ -75,9 +74,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, existingIm
             <ImagePlus className="text-gray-400" size={48} />
           </div>
         )}
-        <Input
+        <input
           type="file"
-          ref={fileInputRef}
+          ref={fileinputRef}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           onChange={handleFileChange}
           accept="image/*"

@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { Upload, ImagePlus } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 const ImageUploader: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -116,7 +115,7 @@ const ImageUploader: React.FC = () => {
                   <ImagePlus className="text-gray-400" size={48} />
                 </div>
               )}
-              <Input
+              <input
                 type="file"
                 id="file"
                 accept="image/*"
@@ -124,11 +123,11 @@ const ImageUploader: React.FC = () => {
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               />
             </div>
-            <Input
+            <input
               type="text"
               id="title"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
               placeholder="Enter image title"
               required
             />
